@@ -6,10 +6,14 @@
       collapsible
       style="background: rgba(52, 59, 92)"
     >
-      <div class="logo">威本+建厚猪猪</div>
+      <div class="logo">
+        <img v-if="collapsed" src="../assets/avatar.png" alt="avatar" />
+        <span v-else>威本+建厚猪猪</span>
+      </div>
       <a-menu
         v-model:selectedKeys="selectedKeys"
         mode="inline"
+        theme="dark"
         @click="handleMenuClick"
       >
         <a-menu-item v-for="item in routes" :key="item.name">
@@ -19,7 +23,7 @@
       </a-menu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header class="header">
         <menu-unfold-outlined
           v-if="collapsed"
           class="trigger"
@@ -30,6 +34,21 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
+        <div class="right">
+          <a-dropdown>
+            <a @click="(e) => e.preventDefault()">
+              <img src="../assets/avatar.png" alt="avatar" class="avatar" />
+              <DownOutlined />
+            </a>
+            <template #overlay>
+              <a-menu>
+                <a-menu-item>
+                  <a href="javascript:;">退出登录</a>
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+        </div>
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -51,7 +70,8 @@ import { useRouter } from 'vue-router'
 import {
   UserOutlined,
   MenuUnfoldOutlined,
-  MenuFoldOutlined
+  MenuFoldOutlined,
+  DownOutlined
 } from '@ant-design/icons-vue'
 import { asyncRouterMap } from '../router/router.config'
 export default defineComponent({
@@ -59,7 +79,8 @@ export default defineComponent({
   components: {
     UserOutlined,
     MenuUnfoldOutlined,
-    MenuFoldOutlined
+    MenuFoldOutlined,
+    DownOutlined
   },
   setup() {
     const routes = computed(() => asyncRouterMap)
@@ -92,6 +113,10 @@ export default defineComponent({
     font-size: 18px;
     color: #fff;
     margin: 16px;
+    img {
+      width: 32px;
+      margin: 0 auto;
+    }
   }
   /deep/ .ant-menu {
     color: #fff;
@@ -100,6 +125,20 @@ export default defineComponent({
   /deep/ .ant-menu-item-selected {
     color: #fff;
     background: rgba(93, 122, 224);
+  }
+  .header {
+    background: #fff;
+    padding: 0;
+  }
+  .right {
+    float: right;
+    margin-right: 16px;
+  }
+  .avatar {
+    width: 32px;
+    margin-right: 8px;
+    border-radius: 50%;
+    display: inline-block;
   }
 }
 </style>
