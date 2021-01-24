@@ -1,10 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { BasicLayout } from '../layouts/index'
+import { asyncRouterMap } from './router.config'
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Page1',
-    component: () => import('../views/page1/List.vue')
+    name: 'BasicLayout',
+    component: BasicLayout,
+    children: asyncRouterMap
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/user/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/user/Register.vue')
   }
 ]
 

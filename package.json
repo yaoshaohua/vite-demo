@@ -3,15 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vuedx-typecheck . && vite build"
+    "build": "vuedx-typecheck . && vite build",
+    "lint": "eslint '*/**/*.{js,ts,tsx,vue}' --quiet --fix"
   },
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.8",
+    "reset.less": "^1.0.5",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
+    "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
     "@vitejs/plugin-vue": "^1.0.4",
@@ -21,6 +24,7 @@
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.5.0",
     "husky": "^4.3.8",
     "less": "^4.1.0",
     "less-loader": "^7.3.0",

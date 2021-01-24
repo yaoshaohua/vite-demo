@@ -1,5 +1,4 @@
 {
-  "printWidth": 100,
   "tabWidth": 2,
   "useTabs": false,
   "semi": false,
@@ -12,6 +11,5 @@
   "jsxSingleQuote": false,
   "arrowParens": "always",
   "rangeStart": 0,
-  "proseWrap": "always",
-  "endOfLine": "lf"
+  "proseWrap": "always"
 }
