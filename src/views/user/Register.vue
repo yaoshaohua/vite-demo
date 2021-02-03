@@ -16,7 +16,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .register {
   height: 100%;
-  background: url('/@/assets/bg2.png');
+  background: url('../../assets/bg2.png');
   background-size: 100%;
   position: relative;
 

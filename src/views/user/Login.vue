@@ -98,7 +98,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .login {
   height: 100%;
-  background: url('/@/assets/bg.png');
+  background: url('../../assets/bg.png');
   background-size: 100%;
   position: relative;
   .title {

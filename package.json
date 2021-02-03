@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vuedx-typecheck . && vite build",
+    "build": "rm -rf dist && vuedx-typecheck . && vite build",
     "lint": "eslint '*/**/*.{js,ts,tsx,vue}' --quiet --fix"
   },
   "dependencies": {

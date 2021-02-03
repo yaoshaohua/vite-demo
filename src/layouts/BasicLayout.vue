@@ -118,11 +118,11 @@ export default defineComponent({
       margin: 0 auto;
     }
   }
-  /deep/ .ant-menu {
+  ::v-deep(.ant-menu) {
     color: #fff;
     background: rgba(52, 59, 92);
   }
-  /deep/ .ant-menu-item-selected {
+  ::v-deep(.ant-menu-item-selected) {
     color: #fff;
     background: rgba(93, 122, 224);
   }
