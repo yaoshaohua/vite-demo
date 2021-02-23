@@ -10,15 +10,12 @@
         <img v-if="collapsed" src="../assets/avatar.png" alt="avatar" />
         <span v-else>威本+建厚猪猪</span>
       </div>
-      <a-menu
-        v-model:selectedKeys="selectedKeys"
-        mode="inline"
-        theme="dark"
-        @click="handleMenuClick"
-      >
-        <a-menu-item v-for="item in routes" :key="item.name">
-          <user-outlined />
-          <span>{{ item.meta.title }}</span>
+      <a-menu v-model:selectedKeys="selectedKeys" mode="inline" theme="dark">
+        <a-menu-item v-for="item in routes" :key="item.path">
+          <router-link :to="item.path">
+            <user-outlined />
+            <span>{{ item.meta.title }}</span>
+          </router-link>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -65,8 +62,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { defineComponent, ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import {
   UserOutlined,
   MenuUnfoldOutlined,
@@ -74,6 +71,7 @@ import {
   DownOutlined
 } from '@ant-design/icons-vue'
 import { asyncRouterMap } from '../router/router.config'
+
 export default defineComponent({
   name: 'BasicLayout',
   components: {
@@ -83,15 +81,14 @@ export default defineComponent({
     DownOutlined
   },
   setup() {
+    const route = useRoute()
     const routes = computed(() => asyncRouterMap)
-    const selectedKeys: Array<string> = reactive(['1'])
-    const router = useRouter()
-    const handleMenuClick = ({ key = '' }) => {
-      router.push({ name: key })
-    }
+    const selectedKeys = computed({
+      set: () => [route.path],
+      get: () => [route.path]
+    })
     const collapsed = ref(false)
-
-    return { routes, selectedKeys, collapsed, handleMenuClick }
+    return { routes, selectedKeys, collapsed }
   }
 })
 </script>

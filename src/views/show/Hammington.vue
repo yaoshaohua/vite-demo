@@ -1,11 +1,11 @@
 <template>
-  <ul class="list">
+  <ul class="hammington">
     <li>
-      <h3 class="title">预览</h3>
+      <h3 class="title">William</h3>
       <div class="preview"></div>
     </li>
     <li>
-      <h3 class="title">配置</h3>
+      <h3 class="title">Bentley</h3>
     </li>
   </ul>
 </template>
@@ -13,13 +13,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'List'
+  name: 'hammington'
   // setup() {}
 })
 </script>
 
 <style lang="less" scoped>
-.list {
+.hammington {
   display: grid;
   grid-template-columns: 375px 1fr;
   grid-column-gap: 20px;
